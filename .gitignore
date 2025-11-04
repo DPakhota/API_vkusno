@@ -1,0 +1,17 @@
+# База данных
+database.db
+
+# Виртуальное окружение
+venv/
+env/
+.venv/
+
+# PyCharm
+.idea/
+
+# Кэш Python
+__pycache__/
+*.pyc
+
+# Локальные файлы
+.DS_Store
