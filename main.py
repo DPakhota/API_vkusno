@@ -4,19 +4,9 @@ from pydantic import BaseModel
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import databases
 
-from passlib.context import CryptContext
-from jose import JWTError, jwt
-from datetime import datetime, timedelta
-
-# === FastAPI ПРИЛОЖЕНИЕ (НАВЕРХ!) ===
-app = FastAPI(
-    title="Меню ресторана API",
-    description="Полноценный CRUD API на FastAPI + SQLite + JWT",
-    version="1.0.0"
-)
-
-# === Настройки БД ===
+# === Настройки ===
 SQLALCHEMY_DATABASE_URL = "sqlite:///./database.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -29,6 +19,7 @@ class MenuItem(BaseModel):
     description: str
     price: float
 
+# === Модель БД ===
 class DBMenuItem(Base):
     __tablename__ = "menu_items"
     id = Column(Integer, primary_key=True, index=True)
