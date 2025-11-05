@@ -117,7 +117,7 @@ def get_db():
 # === CRUD Эндпоинты ===
 
 @app.get("/menu", response_model=list[MenuItem])
-async def Посмотреть_меню(db=Depends(get_db)):
+async def get_menu(user: str = Depends(get_current_user), db=Depends(get_db)):
     return db.query(DBMenuItem).all()
 
 @app.post("/menu", response_model=MenuItem)
