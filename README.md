@@ -40,12 +40,11 @@ pip install -r requirements.txt
 # 3. Запустить сервер
 uvicorn main:app --reload
 Сервер запустится на: http://127.0.0.1:8000
-
+```bash
 Swagger UI (документация)
 Перейди по ссылке:
 http://127.0.0.1:8000/docs
-<img src="swagger.png" alt="Swagger UI">
-
+![Swagger UI](swagger.png)
 Пример запросов
 Добавить блюдо (POST /menu)
 json{
@@ -83,4 +82,3 @@ Email: dpakhota@mail.com
 
 
 Готов взять ваш проект!
-Простые API, интеграции, фиксы — быстро и с гарантией.
